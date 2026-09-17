@@ -1,12 +1,15 @@
 import type { Metadata } from 'next';
 
-import { Geist_Mono, Plus_Jakarta_Sans } from 'next/font/google';
+import { Geist_Mono, Plus_Jakarta_Sans, Geist } from 'next/font/google';
 
 import { SiteShell } from '@/components/layout/site-shell';
 import { ThemeProvider } from '@/components/theme/theme-provider';
 import { ThemeScript } from '@/components/theme/theme-script';
 
 import './globals.css';
+import { cn } from '@/lib/utils';
+
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const jakarta = Plus_Jakarta_Sans({
   variable: '--font-jakarta',
@@ -34,7 +37,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${jakarta.variable} ${geistMono.variable} h-full antialiased`}
+      className={cn(
+        'h-full',
+        'antialiased',
+        jakarta.variable,
+        geistMono.variable,
+        'font-sans',
+        geist.variable,
+      )}
     >
       <head>
         <ThemeScript />
