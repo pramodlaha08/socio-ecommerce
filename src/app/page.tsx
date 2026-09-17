@@ -1,5 +1,3 @@
-import { ThemeSwitcher } from '@/components/theme/theme-switcher';
-
 export default function Home() {
   return (
     <section className="mx-auto flex min-h-[calc(100vh-9rem)] max-w-7xl flex-col items-center justify-center px-6 py-16">
@@ -15,12 +13,6 @@ export default function Home() {
         <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
           A scalable e-commerce experience built with a modern, themeable UI foundation.
         </p>
-      </div>
-
-      <div className="mt-10">
-        <p className="mb-4 text-center text-sm font-medium text-muted-foreground">Choose a theme</p>
-
-        <ThemeSwitcher />
       </div>
     </section>
   );

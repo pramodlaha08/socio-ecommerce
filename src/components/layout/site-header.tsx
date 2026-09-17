@@ -10,17 +10,17 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-6 md:flex">
           <Link
-            href="#"
+            href="/"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
             Home
           </Link>
 
           <Link
-            href="#"
+            href="/ui-library"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            Products
+            UI Library
           </Link>
 
           <Link
