@@ -1,11 +1,25 @@
+'use client';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { ThemeSwitcher } from '@/components/theme/theme-switcher';
+import { ConfirmDialog } from '@/components/common/confirm-dialog';
+import { useState } from 'react';
 
 export default function UIPlaygroundPage() {
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  async function handleDelete() {
+    setLoading(true);
+
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    setLoading(false);
+    setDeleteDialogOpen(false);
+  }
   return (
     <main className="min-h-screen bg-background px-6 py-12 text-foreground">
       <div className="mx-auto max-w-6xl space-y-12">
@@ -39,6 +53,43 @@ export default function UIPlaygroundPage() {
             </CardContent>
           </Card>
         </section>
+        <section className="space-y-4">
+          <div>
+            <h2 className="text-xl font-semibold">Confirmation Dialog</h2>
+
+            <p className="mt-1 text-sm text-muted-foreground">
+              Reusable confirmation dialog for destructive and important actions.
+            </p>
+          </div>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Delete Confirmation</CardTitle>
+
+              <CardDescription>
+                Test the reusable confirmation pattern with loading state.
+              </CardDescription>
+            </CardHeader>
+
+            <CardContent>
+              <Button variant="destructive" onClick={() => setDeleteDialogOpen(true)}>
+                Delete Vendor
+              </Button>
+            </CardContent>
+          </Card>
+        </section>
+
+        <ConfirmDialog
+          open={deleteDialogOpen}
+          onOpenChange={setDeleteDialogOpen}
+          title="Delete vendor?"
+          description="This action cannot be undone. The vendor and its associated data will be permanently deleted."
+          confirmText="Delete Vendor"
+          cancelText="Keep Vendor"
+          variant="destructive"
+          loading={loading}
+          onConfirm={handleDelete}
+        />
 
         {/* Buttons */}
 
