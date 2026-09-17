@@ -17,7 +17,7 @@ export function SiteHeader() {
           </Link>
 
           <Link
-            href="/ui-library"
+            href="/ui-playground"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
             UI Library
