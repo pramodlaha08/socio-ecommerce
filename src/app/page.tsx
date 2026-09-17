@@ -18,6 +18,8 @@ export default function Home() {
       </div>
 
       <div className="mt-10">
+        <p className="mb-4 text-center text-sm font-medium text-muted-foreground">Choose a theme</p>
+
         <ThemeSwitcher />
       </div>
     </section>

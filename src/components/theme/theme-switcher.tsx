@@ -1,13 +1,14 @@
 'use client';
 
 import { themes, type ThemeName } from '@/lib/themes';
+
 import { useTheme } from './theme-provider';
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="flex flex-wrap items-center gap-3">
+    <div className="flex flex-wrap items-center justify-center gap-3">
       {(Object.keys(themes) as ThemeName[]).map((themeName) => {
         const isActive = theme === themeName;
 
