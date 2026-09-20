@@ -1,4 +1,7 @@
 'use client';
+import * as React from 'react';
+
+import { DatePicker } from '@/components/common/date-picker';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,6 +14,8 @@ import { useState } from 'react';
 export default function UIPlaygroundPage() {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [date, setDate] = React.useState<Date | undefined>();
+  const [dateTime, setDateTime] = React.useState<Date | undefined>();
 
   async function handleDelete() {
     setLoading(true);
@@ -90,6 +95,37 @@ export default function UIPlaygroundPage() {
           loading={loading}
           onConfirm={handleDelete}
         />
+        <section className="space-y-4">
+          <div>
+            <h2 className="text-2xl font-semibold">Date Picker</h2>
+
+            <p className="text-sm text-muted-foreground">
+              AD and BS calendar with optional time support.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="space-y-2">
+              <p className="text-sm font-medium">Date only</p>
+
+              <DatePicker value={date} onChange={setDate} />
+
+              <p className="text-xs text-muted-foreground">
+                {date ? date.toString() : 'No date selected'}
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <p className="text-sm font-medium">Date and time</p>
+
+              <DatePicker value={dateTime} onChange={setDateTime} includeTime />
+
+              <p className="text-xs text-muted-foreground">
+                {dateTime ? dateTime.toString() : 'No date and time selected'}
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Buttons */}
 
