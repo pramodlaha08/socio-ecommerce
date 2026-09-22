@@ -188,7 +188,12 @@ export function DatePicker({
 
           {/* Calendar */}
           {calendarSystem === 'ad' ? (
-            <Calendar mode="single" selected={value} onSelect={handleDateChange} />
+            <Calendar
+              mode="single"
+              selected={value}
+              onSelect={handleDateChange}
+              className="w-full"
+            />
           ) : (
             <BSCalendar value={value} onChange={handleDateChange} />
           )}

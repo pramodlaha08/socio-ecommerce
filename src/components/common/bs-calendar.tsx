@@ -64,7 +64,7 @@ export function BSCalendar({ value, onChange, className }: BSCalendarProps) {
   };
 
   return (
-    <div className={cn('w-fit rounded-lg bg-background p-3', className)}>
+    <div className={cn('w-[320px] rounded-lg bg-background p-3', className)}>
       <div className="flex items-center justify-between">
         <Button
           type="button"
@@ -91,7 +91,7 @@ export function BSCalendar({ value, onChange, className }: BSCalendarProps) {
         </Button>
       </div>
 
-      <div className="mt-3 grid grid-cols-7">
+      <div className="grid w-full grid-cols-7">
         {BS_WEEKDAYS.map((weekday) => (
           <div
             key={weekday}
@@ -124,7 +124,7 @@ export function BSCalendar({ value, onChange, className }: BSCalendarProps) {
               aria-label={`${BS_MONTHS[displayDate.month]} ${day}, ${displayDate.year}`}
               aria-pressed={isSelected}
               className={cn(
-                'flex aspect-square items-center justify-center rounded-md text-sm transition-colors',
+                'flex h-9 w-full items-center justify-center rounded-md text-sm transition-colors',
                 'hover:bg-secondary hover:text-secondary-foreground',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
                 isToday && !isSelected && 'bg-muted font-semibold text-foreground',
