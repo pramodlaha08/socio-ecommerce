@@ -64,7 +64,7 @@ export function BSCalendar({ value, onChange, className }: BSCalendarProps) {
   };
 
   return (
-    <div className={cn('w-[320px] rounded-lg bg-background p-3', className)}>
+    <div className={cn('w-full rounded-lg bg-background p-3', className)}>
       <div className="flex items-center justify-between">
         <Button
           type="button"

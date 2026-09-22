@@ -187,16 +187,18 @@ export function DatePicker({
           </div>
 
           {/* Calendar */}
-          {calendarSystem === 'ad' ? (
-            <Calendar
-              mode="single"
-              selected={value}
-              onSelect={handleDateChange}
-              className="w-full"
-            />
-          ) : (
-            <BSCalendar value={value} onChange={handleDateChange} />
-          )}
+          <div className="w-[320px]">
+            {calendarSystem === 'ad' ? (
+              <Calendar
+                mode="single"
+                selected={value}
+                onSelect={handleDateChange}
+                className="w-full"
+              />
+            ) : (
+              <BSCalendar value={value} onChange={handleDateChange} className="w-full" />
+            )}
+          </div>
 
           {/* Time */}
           {includeTime && (
