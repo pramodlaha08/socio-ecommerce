@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 
-import { CalendarIcon, CheckIcon, ChevronDownIcon, Clock3Icon } from 'lucide-react';
+import { CalendarIcon, CheckIcon, ChevronDownIcon } from 'lucide-react';
+import { TimePicker } from '@/components/common/time-picker';
 
 import { BSCalendar } from '@/components/common/bs-calendar';
 import { Button } from '@/components/ui/button';
@@ -43,18 +44,6 @@ function formatTime(date: Date): string {
   }).format(date);
 }
 
-function padTime(value: number): string {
-  return String(value).padStart(2, '0');
-}
-
-function createDateWithTime(date: Date, hours: number, minutes: number): Date {
-  const nextDate = new Date(date);
-
-  nextDate.setHours(hours, minutes, 0, 0);
-
-  return nextDate;
-}
-
 export function DatePicker({
   value,
   onChange,
@@ -78,15 +67,11 @@ export function DatePicker({
       return;
     }
 
-    onChange(createDateWithTime(date, value.getHours(), value.getMinutes()));
-  };
+    const nextDate = new Date(date);
 
-  const handleTimeChange = (hours: number, minutes: number) => {
-    if (!value) {
-      return;
-    }
+    nextDate.setHours(value.getHours(), value.getMinutes(), 0, 0);
 
-    onChange(createDateWithTime(value, hours, minutes));
+    onChange(nextDate);
   };
 
   const handleToday = () => {
@@ -114,9 +99,6 @@ export function DatePicker({
       ? formatADDate(value)
       : formatBSDate(value)
     : placeholder;
-
-  const selectedHours = value?.getHours() ?? 0;
-  const selectedMinutes = value?.getMinutes() ?? 0;
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -203,60 +185,9 @@ export function DatePicker({
           {/* Time */}
           {includeTime && (
             <div className="mt-3 border-t border-border pt-3">
-              <div className="mb-2 flex items-center gap-2">
-                <Clock3Icon className="size-4 text-muted-foreground" />
-
-                <span className="text-sm font-medium">Time</span>
-
-                {value && (
-                  <span className="ml-auto text-xs text-muted-foreground">{formatTime(value)}</span>
-                )}
-              </div>
-
-              <div className="flex items-center gap-2">
-                <select
-                  value={padTime(selectedHours)}
-                  disabled={!value}
-                  onChange={(event) =>
-                    handleTimeChange(Number(event.target.value), selectedMinutes)
-                  }
-                  aria-label="Hour"
-                  className={cn(
-                    'h-9 rounded-md border border-input bg-background px-2 text-sm',
-                    'outline-none focus-visible:ring-2 focus-visible:ring-ring',
-                    'disabled:cursor-not-allowed disabled:opacity-50',
-                  )}
-                >
-                  {Array.from({ length: 24 }, (_, hour) => (
-                    <option key={hour} value={padTime(hour)}>
-                      {padTime(hour)}
-                    </option>
-                  ))}
-                </select>
-
-                <span className="text-sm font-medium text-muted-foreground">:</span>
-
-                <select
-                  value={padTime(selectedMinutes)}
-                  disabled={!value}
-                  onChange={(event) => handleTimeChange(selectedHours, Number(event.target.value))}
-                  aria-label="Minute"
-                  className={cn(
-                    'h-9 rounded-md border border-input bg-background px-2 text-sm',
-                    'outline-none focus-visible:ring-2 focus-visible:ring-ring',
-                    'disabled:cursor-not-allowed disabled:opacity-50',
-                  )}
-                >
-                  {Array.from({ length: 60 }, (_, minute) => (
-                    <option key={minute} value={padTime(minute)}>
-                      {padTime(minute)}
-                    </option>
-                  ))}
-                </select>
-              </div>
+              <TimePicker value={value} onChange={onChange} minuteStep={5} />
             </div>
           )}
-
           {/* Actions */}
           <div className="mt-3 flex items-center justify-between border-t border-border pt-3">
             <Button type="button" variant="ghost" size="sm" onClick={handleClear} disabled={!value}>
