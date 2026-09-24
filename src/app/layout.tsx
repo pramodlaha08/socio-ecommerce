@@ -8,6 +8,7 @@ import { ThemeScript } from '@/components/theme/theme-script';
 
 import './globals.css';
 import { cn } from '@/lib/utils';
+import { Toaster } from '@/components/ui/sonner';
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className="min-h-full">
         <ThemeProvider>
           <SiteShell>{children}</SiteShell>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

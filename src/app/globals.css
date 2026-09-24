@@ -379,3 +379,37 @@ body {
     @apply font-sans;
   }
 }
+
+@layer components {
+  .cn-toast {
+    border: 1px solid var(--border);
+    background: var(--popover);
+    color: var(--popover-foreground);
+    box-shadow: var(--shadow-md);
+  }
+
+  .cn-toast-success {
+    border-color: color-mix(in srgb, var(--success) 35%, var(--border));
+    background: color-mix(in srgb, var(--success) 8%, var(--popover));
+  }
+
+  .cn-toast-warning {
+    border-color: color-mix(in srgb, var(--warning) 35%, var(--border));
+    background: color-mix(in srgb, var(--warning) 8%, var(--popover));
+  }
+
+  .cn-toast-error {
+    border-color: color-mix(in srgb, var(--destructive) 35%, var(--border));
+    background: color-mix(in srgb, var(--destructive) 8%, var(--popover));
+  }
+
+  .cn-toast-info {
+    border-color: color-mix(in srgb, var(--info) 35%, var(--border));
+    background: color-mix(in srgb, var(--info) 8%, var(--popover));
+  }
+
+  .cn-toast-loading {
+    border-color: color-mix(in srgb, var(--primary) 30%, var(--border));
+    background: color-mix(in srgb, var(--primary) 6%, var(--popover));
+  }
+}
