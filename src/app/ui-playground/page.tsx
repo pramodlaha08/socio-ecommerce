@@ -10,6 +10,7 @@ import { Label } from '@/components/ui/label';
 import { ThemeSwitcher } from '@/components/theme/theme-switcher';
 import { ConfirmDialog } from '@/components/common/confirm-dialog';
 import { useState } from 'react';
+import { toast } from 'sonner';
 
 export default function UIPlaygroundPage() {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
@@ -58,6 +59,16 @@ export default function UIPlaygroundPage() {
             </CardContent>
           </Card>
         </section>
+        <div className="flex flex-wrap gap-3">
+          <Button onClick={() => toast.success('Product added to cart.')}>Success</Button>
+
+          <Button onClick={() => toast.error('Something went wrong.')}>Error</Button>
+
+          <Button onClick={() => toast.warning('Only a few items are left.')}>Warning</Button>
+
+          <Button onClick={() => toast.info('Your order is being processed.')}>Info</Button>
+          <Button onClick={() => toast.loading('Processing your order...')}>Loading</Button>
+        </div>
         <section className="space-y-4">
           <div>
             <h2 className="text-xl font-semibold">Confirmation Dialog</h2>
@@ -77,7 +88,11 @@ export default function UIPlaygroundPage() {
             </CardHeader>
 
             <CardContent>
-              <Button variant="destructive" onClick={() => setDeleteDialogOpen(true)}>
+              <Button
+                className="rounded-sm p-5"
+                variant="destructive"
+                onClick={() => setDeleteDialogOpen(true)}
+              >
                 Delete Vendor
               </Button>
             </CardContent>
