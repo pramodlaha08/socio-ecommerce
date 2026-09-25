@@ -383,33 +383,33 @@ body {
 @layer components {
   .cn-toast {
     border: 1px solid var(--border);
-    background: var(--popover);
+    background: var(--popover) !important;
     color: var(--popover-foreground);
     box-shadow: var(--shadow-md);
   }
 
   .cn-toast-success {
-    border-color: color-mix(in srgb, var(--success) 35%, var(--border));
-    background: color-mix(in srgb, var(--success) 8%, var(--popover));
+    border-color: color-mix(in srgb, var(--success) 45%, var(--border));
+    background: color-mix(in srgb, var(--success) 14%, var(--popover)) !important;
   }
 
   .cn-toast-warning {
-    border-color: color-mix(in srgb, var(--warning) 35%, var(--border));
-    background: color-mix(in srgb, var(--warning) 8%, var(--popover));
+    border-color: color-mix(in srgb, var(--warning) 45%, var(--border));
+    background: color-mix(in srgb, var(--warning) 16%, var(--popover)) !important;
   }
 
   .cn-toast-error {
-    border-color: color-mix(in srgb, var(--destructive) 35%, var(--border));
-    background: color-mix(in srgb, var(--destructive) 8%, var(--popover));
+    border-color: color-mix(in srgb, var(--destructive) 45%, var(--border));
+    background: color-mix(in srgb, var(--destructive) 14%, var(--popover)) !important;
   }
 
   .cn-toast-info {
-    border-color: color-mix(in srgb, var(--info) 35%, var(--border));
-    background: color-mix(in srgb, var(--info) 8%, var(--popover));
+    border-color: color-mix(in srgb, var(--info) 45%, var(--border));
+    background: color-mix(in srgb, var(--info) 13%, var(--popover)) !important;
   }
 
   .cn-toast-loading {
-    border-color: color-mix(in srgb, var(--primary) 30%, var(--border));
-    background: color-mix(in srgb, var(--primary) 6%, var(--popover));
+    border-color: color-mix(in srgb, var(--primary) 35%, var(--border));
+    background: color-mix(in srgb, var(--primary) 10%, var(--popover)) !important;
   }
 }
