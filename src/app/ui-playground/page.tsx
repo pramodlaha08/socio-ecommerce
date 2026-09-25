@@ -11,12 +11,32 @@ import { ThemeSwitcher } from '@/components/theme/theme-switcher';
 import { ConfirmDialog } from '@/components/common/confirm-dialog';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogMedia,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog';
+
+import { AlertTriangle, Info, Trash2 } from 'lucide-react';
+
+import { AlertCircle, Check, ExternalLink, RefreshCw } from 'lucide-react';
+
+import { AlertBanner } from '@/components/common/alert-banner';
 
 export default function UIPlaygroundPage() {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [date, setDate] = React.useState<Date | undefined>();
   const [dateTime, setDateTime] = React.useState<Date | undefined>();
+  // dismisable banner
+  const [showDismissibleBanner, setShowDismissibleBanner] = React.useState(true);
 
   async function handleDelete() {
     setLoading(true);
@@ -99,6 +119,245 @@ export default function UIPlaygroundPage() {
           </Card>
         </section>
 
+        <section className="space-y-6">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+              Dialog System
+            </p>
+
+            <h2 className="mt-2 text-2xl font-bold tracking-tight">Alert Dialogs</h2>
+
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
+              Confirmation dialogs for destructive actions, important decisions, warnings, and other
+              actions that require explicit user confirmation.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Basic */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Basic Confirmation</CardTitle>
+                <CardDescription>Simple decision with cancel and continue actions.</CardDescription>
+              </CardHeader>
+
+              <CardContent>
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <Button>Open Dialog</Button>
+                  </AlertDialogTrigger>
+
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>Continue with this action?</AlertDialogTitle>
+
+                      <AlertDialogDescription>
+                        This will continue the selected operation. You can cancel if you are not
+                        ready.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+
+                      <AlertDialogAction>Continue</AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+              </CardContent>
+            </Card>
+
+            {/* Destructive */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Destructive</CardTitle>
+                <CardDescription>For permanent or potentially harmful actions.</CardDescription>
+              </CardHeader>
+
+              <CardContent>
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <Button variant="destructive">
+                      <Trash2 />
+                      Delete Product
+                    </Button>
+                  </AlertDialogTrigger>
+
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogMedia>
+                        <Trash2 className="text-destructive" />
+                      </AlertDialogMedia>
+
+                      <AlertDialogTitle>Delete this product?</AlertDialogTitle>
+
+                      <AlertDialogDescription>
+                        This action cannot be undone. The product and its associated information
+                        will be permanently removed.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+
+                      <AlertDialogAction variant="destructive">Delete Product</AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+              </CardContent>
+            </Card>
+
+            {/* Warning */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Warning</CardTitle>
+                <CardDescription>
+                  For actions that need attention before continuing.
+                </CardDescription>
+              </CardHeader>
+
+              <CardContent>
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <Button variant="outline">
+                      <AlertTriangle />
+                      Continue
+                    </Button>
+                  </AlertDialogTrigger>
+
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogMedia>
+                        <AlertTriangle className="text-warning" />
+                      </AlertDialogMedia>
+
+                      <AlertDialogTitle>Stock is running low</AlertDialogTitle>
+
+                      <AlertDialogDescription>
+                        Only 3 units are currently available. Continuing may result in the product
+                        becoming unavailable.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Go Back</AlertDialogCancel>
+
+                      <AlertDialogAction>Continue Anyway</AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+              </CardContent>
+            </Card>
+
+            {/* Information */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Information</CardTitle>
+                <CardDescription>
+                  Useful when confirmation is required for an informational situation.
+                </CardDescription>
+              </CardHeader>
+
+              <CardContent>
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <Button variant="outline">
+                      <Info />
+                      View Information
+                    </Button>
+                  </AlertDialogTrigger>
+
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogMedia>
+                        <Info className="text-info" />
+                      </AlertDialogMedia>
+
+                      <AlertDialogTitle>Additional verification required</AlertDialogTitle>
+
+                      <AlertDialogDescription>
+                        You may need to verify your identity before completing this operation.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+
+                      <AlertDialogAction>Verify Now</AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+              </CardContent>
+            </Card>
+
+            {/* Small */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Small Dialog</CardTitle>
+                <CardDescription>Compact version for short confirmations.</CardDescription>
+              </CardHeader>
+
+              <CardContent>
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <Button variant="secondary">Open Small Dialog</Button>
+                  </AlertDialogTrigger>
+
+                  <AlertDialogContent size="sm">
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>Sign out?</AlertDialogTitle>
+
+                      <AlertDialogDescription>
+                        You will need to sign in again to access your account.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Stay</AlertDialogCancel>
+
+                      <AlertDialogAction>Sign Out</AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+              </CardContent>
+            </Card>
+
+            {/* Long Content */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Long Description</CardTitle>
+                <CardDescription>Demonstrates longer explanatory content.</CardDescription>
+              </CardHeader>
+
+              <CardContent>
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <Button variant="outline">Open Details</Button>
+                  </AlertDialogTrigger>
+
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>Cancel this order?</AlertDialogTitle>
+
+                      <AlertDialogDescription>
+                        Your order has already been processed by the seller. Cancelling it may
+                        require additional processing time. Any eligible refund will be handled
+                        according to the applicable refund policy.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Keep Order</AlertDialogCancel>
+
+                      <AlertDialogAction variant="destructive">Cancel Order</AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
         <ConfirmDialog
           open={deleteDialogOpen}
           onOpenChange={setDeleteDialogOpen}
@@ -110,6 +369,7 @@ export default function UIPlaygroundPage() {
           loading={loading}
           onConfirm={handleDelete}
         />
+
         <section className="space-y-4">
           <div>
             <h2 className="text-2xl font-semibold">Date Picker</h2>
@@ -287,6 +547,278 @@ export default function UIPlaygroundPage() {
               </div>
             </CardContent>
           </Card>
+        </section>
+
+        <section className="space-y-6">
+          <div className="space-y-1">
+            <h2 className="text-2xl font-semibold tracking-tight">Alert Banners</h2>
+
+            <p className="text-sm text-muted-foreground">
+              Persistent, contextual feedback for important states, warnings, errors, and actions.
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {/* Basic variants */}
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-base font-semibold">Variants</h3>
+                <p className="text-sm text-muted-foreground">
+                  The four semantic alert types available across the application.
+                </p>
+              </div>
+
+              <div className="grid gap-4">
+                <AlertBanner variant="success" title="Order placed successfully" />
+
+                <AlertBanner variant="warning" title="Only 3 items remaining" />
+
+                <AlertBanner variant="error" title="Payment failed" />
+
+                <AlertBanner variant="info" title="New feature available" />
+              </div>
+            </div>
+
+            {/* Title + description */}
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-base font-semibold">Title + Description</h3>
+                <p className="text-sm text-muted-foreground">
+                  Use a description when the user needs additional context.
+                </p>
+              </div>
+
+              <AlertBanner
+                variant="success"
+                title="Order placed successfully"
+                description="Your order has been confirmed and is now being prepared for shipment."
+              />
+            </div>
+
+            {/* Actions */}
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-base font-semibold">With Action</h3>
+                <p className="text-sm text-muted-foreground">
+                  Add an action when the user can immediately resolve or continue from the alert.
+                </p>
+              </div>
+
+              <AlertBanner
+                variant="error"
+                title="Payment failed"
+                description="We couldn't process your payment. Please check your payment method and try again."
+                action={
+                  <Button size="sm">
+                    <RefreshCw className="size-4" />
+                    Try again
+                  </Button>
+                }
+              />
+            </div>
+
+            {/* Multiple actions */}
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-base font-semibold">Multiple Actions</h3>
+                <p className="text-sm text-muted-foreground">
+                  Actions can contain any React node, so multiple buttons are supported.
+                </p>
+              </div>
+
+              <AlertBanner
+                variant="warning"
+                title="Your email is not verified"
+                description="Verify your email address to unlock all account features."
+                action={
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Button size="sm">
+                      <Check className="size-4" />
+                      Verify email
+                    </Button>
+
+                    <Button size="sm" variant="outline">
+                      Resend
+                    </Button>
+                  </div>
+                }
+              />
+            </div>
+
+            {/* Dismissible */}
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-base font-semibold">Dismissible</h3>
+                <p className="text-sm text-muted-foreground">
+                  Useful for informational banners that the user can close.
+                </p>
+              </div>
+
+              {showDismissibleBanner ? (
+                <AlertBanner
+                  variant="info"
+                  title="New wishlist feature available"
+                  description="You can now save products and access them later from your wishlist."
+                  onDismiss={() => setShowDismissibleBanner(false)}
+                />
+              ) : (
+                <div className="flex items-center justify-between rounded-xl border border-dashed border-border p-4">
+                  <p className="text-sm text-muted-foreground">Banner dismissed.</p>
+
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => setShowDismissibleBanner(true)}
+                  >
+                    Show again
+                  </Button>
+                </div>
+              )}
+            </div>
+
+            {/* Action + dismiss */}
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-base font-semibold">Action + Dismiss</h3>
+                <p className="text-sm text-muted-foreground">
+                  Useful when the alert has an optional action but should also be closable.
+                </p>
+              </div>
+
+              <AlertBanner
+                variant="warning"
+                title="Complete your profile"
+                description="Add your phone number and address to make checkout faster."
+                action={
+                  <Button size="sm" variant="outline">
+                    Complete profile
+                  </Button>
+                }
+                onDismiss={() => {}}
+              />
+            </div>
+
+            {/* Long content */}
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-base font-semibold">Long Content</h3>
+                <p className="text-sm text-muted-foreground">
+                  Test how the component behaves with longer messages and responsive layouts.
+                </p>
+              </div>
+
+              <AlertBanner
+                variant="error"
+                title="We couldn't complete your order"
+                description="Something went wrong while processing your order. Your payment has not been charged. Please check your payment details and try again. If the problem continues, contact our support team."
+                action={
+                  <div className="flex flex-wrap gap-2">
+                    <Button size="sm">Try again</Button>
+
+                    <Button size="sm" variant="outline">
+                      Contact support
+                    </Button>
+                  </div>
+                }
+                onDismiss={() => {}}
+              />
+            </div>
+
+            {/* Custom action */}
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-base font-semibold">Custom Action Content</h3>
+                <p className="text-sm text-muted-foreground">
+                  Since action accepts ReactNode, links, buttons, or custom controls can be used.
+                </p>
+              </div>
+
+              <AlertBanner
+                variant="info"
+                title="Documentation has been updated"
+                description="Learn about the latest changes and improvements."
+                action={
+                  <Button size="sm" variant="outline">
+                    <ExternalLink className="size-4" />
+                    View documentation
+                  </Button>
+                }
+              />
+            </div>
+
+            {/* Realistic ecommerce examples */}
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-base font-semibold">Real-World Examples</h3>
+                <p className="text-sm text-muted-foreground">
+                  Examples of how AlertBanner can be used throughout Socio Commerce.
+                </p>
+              </div>
+
+              <div className="grid gap-4">
+                <AlertBanner
+                  variant="success"
+                  title="Product added to cart"
+                  description="The product has been added successfully."
+                  action={<Button size="sm">View cart</Button>}
+                />
+
+                <AlertBanner
+                  variant="warning"
+                  title="Low stock"
+                  description="Only 2 units of this product are left in stock."
+                />
+
+                <AlertBanner
+                  variant="error"
+                  title="Unable to load products"
+                  description="We couldn't retrieve the latest products. Please try again."
+                  action={
+                    <Button size="sm">
+                      <RefreshCw className="size-4" />
+                      Retry
+                    </Button>
+                  }
+                />
+
+                <AlertBanner
+                  variant="info"
+                  title="Free delivery available"
+                  description="Add NPR 1,500 more to your cart to unlock free delivery."
+                  action={
+                    <Button size="sm" variant="outline">
+                      Continue shopping
+                    </Button>
+                  }
+                />
+              </div>
+            </div>
+
+            {/* Advanced custom content */}
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-base font-semibold">Advanced Custom Action</h3>
+                <p className="text-sm text-muted-foreground">
+                  The action slot can also contain richer custom content.
+                </p>
+              </div>
+
+              <AlertBanner
+                variant="success"
+                title="Your account is verified"
+                description="You now have access to all account features."
+                action={
+                  <div className="flex items-center gap-2">
+                    <Button size="sm" variant="ghost">
+                      View profile
+                    </Button>
+
+                    <Button size="sm">Continue</Button>
+                  </div>
+                }
+              />
+            </div>
+          </div>
         </section>
 
         {/* Badges */}
