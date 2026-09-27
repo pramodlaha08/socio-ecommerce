@@ -26,7 +26,7 @@ import {
 
 import { AlertTriangle, Info, Trash2 } from 'lucide-react';
 
-import { AlertCircle, Check, ExternalLink, RefreshCw } from 'lucide-react';
+import { Check, ExternalLink, RefreshCw } from 'lucide-react';
 
 import { AlertBanner } from '@/components/common/alert-banner';
 
