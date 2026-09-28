@@ -1,0 +1,40 @@
+{
+  "sellers": [
+    {
+      "id": "SEL-000001",
+      "userId": "USR-000003",
+      "vendorId": "VEN-000001",
+      "role": "super_seller",
+      "employee": {
+        "employeeCode": "EMP-001",
+        "designation": "Store Manager",
+        "joiningDate": "2026-09-28"
+      },
+      "permissions": [
+        "manage_products",
+        "manage_inventory",
+        "manage_orders",
+        "add_sellers",
+        "remove_sellers",
+        "manage_seller_permissions",
+        "view_sales"
+      ],
+      "createdBy": "USR-000002",
+      "status": "active"
+    },
+    {
+      "id": "SEL-000002",
+      "userId": "USR-000004",
+      "vendorId": "VEN-000001",
+      "role": "seller",
+      "employee": {
+        "employeeCode": "EMP-002",
+        "designation": "Sales Staff",
+        "joiningDate": "2026-09-28"
+      },
+      "permissions": ["manage_products", "manage_inventory", "process_orders", "view_sales"],
+      "createdBy": "SEL-000001",
+      "status": "active"
+    }
+  ]
+}

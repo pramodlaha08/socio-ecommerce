@@ -1,0 +1,61 @@
+{
+  "vendors": [
+    {
+      "id": "VEN-000001",
+      "ownerUserId": "USR-000002",
+      "store": {
+        "name": "Ram Electronics",
+        "slug": "ram-electronics",
+        "description": "Mobile phones, laptops and electronic accessories.",
+        "logo": "/images/vendors/ram-electronics/logo.png",
+        "coverImage": "/images/vendors/ram-electronics/cover.jpg"
+      },
+      "business": {
+        "businessType": "Individual",
+        "legalName": "Ram Electronics Pvt. Ltd.",
+        "registrationNumber": "REG-123456",
+        "panNumber": "PAN-987654321",
+        "vatRegistered": true
+      },
+      "contact": {
+        "email": "ramstore@example.com",
+        "phone": "9811111111",
+        "alternatePhone": "9801111111"
+      },
+      "address": {
+        "province": "Bagmati",
+        "district": "Kathmandu",
+        "city": "Kathmandu",
+        "street": "New Road",
+        "postalCode": "44600"
+      },
+      "pickupAddress": {
+        "province": "Bagmati",
+        "district": "Kathmandu",
+        "city": "Kathmandu",
+        "street": "New Road"
+      },
+      "returnAddress": {
+        "province": "Bagmati",
+        "district": "Kathmandu",
+        "city": "Kathmandu",
+        "street": "New Road"
+      },
+      "documents": {
+        "businessRegistration": "/documents/vendors/VEN-000001/business-registration.pdf",
+        "panDocument": "/documents/vendors/VEN-000001/pan.pdf",
+        "ownerIdentity": "/documents/vendors/VEN-000001/identity.pdf"
+      },
+      "bankAccount": {
+        "bankName": "Global IME Bank",
+        "accountName": "Ram Electronics Pvt. Ltd.",
+        "accountNumber": "1234567890",
+        "verified": true
+      },
+      "superSellerId": "SEL-000001",
+      "status": "approved",
+      "createdAt": "2026-09-28T10:05:00Z",
+      "approvedAt": "2026-09-28T10:08:00Z"
+    }
+  ]
+}

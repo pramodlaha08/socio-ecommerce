@@ -1,0 +1,158 @@
+{
+  "products": [
+    {
+      "id": "PROD-000001",
+      "vendorId": "VEN-000001",
+      "sellerId": "SEL-000001",
+      "categoryId": "CAT-001",
+      "subcategoryId": "SUB-001",
+      "name": "Example Smartphone Pro",
+      "slug": "example-smartphone-pro",
+      "brand": "Example",
+      "model": "Pro X",
+      "description": "A modern smartphone with a high-resolution display, powerful processor and long-lasting battery.",
+      "shortDescription": "12GB RAM, 256GB storage and 5000mAh battery.",
+      "images": [
+        "/images/products/smartphone-1.jpg",
+        "/images/products/smartphone-2.jpg",
+        "/images/products/smartphone-3.jpg"
+      ],
+      "video": null,
+      "pricing": {
+        "regularPrice": 59999,
+        "salePrice": 54999,
+        "currency": "NPR",
+        "discountPercentage": 8.33
+      },
+      "inventory": {
+        "sku": "EX-PRO-X-256-BLK",
+        "barcode": "890000000001",
+        "quantity": 25,
+        "availableQuantity": 25,
+        "reservedQuantity": 0,
+        "lowStockThreshold": 5
+      },
+      "variants": [
+        {
+          "id": "VAR-001",
+          "attributes": {
+            "storage": "256GB",
+            "color": "Black"
+          },
+          "sku": "EX-PRO-X-256-BLK",
+          "barcode": "890000000001",
+          "price": 54999,
+          "quantity": 10
+        },
+        {
+          "id": "VAR-002",
+          "attributes": {
+            "storage": "256GB",
+            "color": "White"
+          },
+          "sku": "EX-PRO-X-256-WHT",
+          "barcode": "890000000002",
+          "price": 54999,
+          "quantity": 8
+        },
+        {
+          "id": "VAR-003",
+          "attributes": {
+            "storage": "512GB",
+            "color": "Black"
+          },
+          "sku": "EX-PRO-X-512-BLK",
+          "barcode": "890000000003",
+          "price": 64999,
+          "quantity": 7
+        }
+      ],
+      "attributes": {
+        "display": "6.7 inch",
+        "ram": "12GB",
+        "storage": "256GB",
+        "battery": "5000mAh",
+        "operatingSystem": "Android"
+      },
+      "shipping": {
+        "freeShipping": false,
+        "shippingFee": 100,
+        "estimatedDeliveryDays": "2-5"
+      },
+      "returnPolicy": {
+        "returnable": true,
+        "returnDays": 7
+      },
+      "commission": {
+        "influencerPercentage": 5,
+        "affiliatePercentage": 3
+      },
+      "rating": {
+        "average": 4.5,
+        "count": 2
+      },
+      "soldCount": 15,
+      "viewCount": 250,
+      "status": "approved",
+      "createdAt": "2026-09-28T10:30:00Z",
+      "updatedAt": "2026-09-28T10:30:00Z"
+    },
+    {
+      "id": "PROD-000002",
+      "vendorId": "VEN-000001",
+      "sellerId": "SEL-000002",
+      "categoryId": "CAT-002",
+      "subcategoryId": "SUB-009",
+      "name": "65W Fast Charger",
+      "slug": "65w-fast-charger",
+      "brand": "Example",
+      "model": "FC-65",
+      "description": "Universal 65W fast charger suitable for smartphones, tablets and compatible laptops.",
+      "shortDescription": "Compact 65W USB-C fast charger.",
+      "images": ["/images/products/charger-1.jpg", "/images/products/charger-2.jpg"],
+      "video": null,
+      "pricing": {
+        "regularPrice": 2999,
+        "salePrice": 2499,
+        "currency": "NPR",
+        "discountPercentage": 16.67
+      },
+      "inventory": {
+        "sku": "FC-65-WHT",
+        "barcode": "890000000010",
+        "quantity": 50,
+        "availableQuantity": 50,
+        "reservedQuantity": 0,
+        "lowStockThreshold": 10
+      },
+      "variants": [],
+      "attributes": {
+        "power": "65W",
+        "port": "USB-C",
+        "color": "White"
+      },
+      "shipping": {
+        "freeShipping": false,
+        "shippingFee": 80,
+        "estimatedDeliveryDays": "2-5"
+      },
+      "returnPolicy": {
+        "returnable": true,
+        "returnDays": 7
+      },
+      "commission": {
+        "influencerPercentage": 5,
+        "affiliatePercentage": 3
+      },
+      "rating": {
+        "average": 4.2,
+        "count": 1
+      },
+      "soldCount": 30,
+      "viewCount": 410,
+      "status": "approved",
+      "createdAt": "2026-09-28T10:35:00Z",
+      "updatedAt": "2026-09-28T10:35:00Z"
+    }
+  ]
+}
