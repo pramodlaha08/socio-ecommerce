@@ -1,0 +1,92 @@
+{
+  "users": [
+    {
+      "id": "USR-000001",
+      "username": "admin",
+      "firstName": "System",
+      "lastName": "Admin",
+      "email": "admin@example.com",
+      "phone": "9800000000",
+      "password": "Admin@123",
+      "roles": ["admin"],
+      "activeRole": "admin",
+      "status": "active",
+      "isVerified": true,
+      "createdAt": "2026-09-28T10:00:00Z"
+    },
+    {
+      "id": "USR-000002",
+      "username": "ramshrestha",
+      "firstName": "Ram",
+      "lastName": "Shrestha",
+      "email": "ram@example.com",
+      "phone": "9811111111",
+      "password": "Ram@123",
+      "roles": ["vendor"],
+      "activeRole": "vendor",
+      "status": "active",
+      "isVerified": true,
+      "createdAt": "2026-09-28T10:05:00Z"
+    },
+    {
+      "id": "USR-000003",
+      "username": "ramstore",
+      "firstName": "Ram",
+      "lastName": "Shrestha",
+      "email": "seller@ramstore.com",
+      "phone": "9811111111",
+      "password": "Seller@123",
+      "roles": ["super_seller"],
+      "activeRole": "super_seller",
+      "vendorId": "VEN-000001",
+      "status": "active",
+      "isVerified": true,
+      "createdAt": "2026-09-28T10:10:00Z"
+    },
+    {
+      "id": "USR-000004",
+      "username": "sita",
+      "firstName": "Sita",
+      "lastName": "Thapa",
+      "email": "sita@ramstore.com",
+      "phone": "9822222222",
+      "password": "Sita@123",
+      "roles": ["seller"],
+      "activeRole": "seller",
+      "vendorId": "VEN-000001",
+      "status": "active",
+      "isVerified": true,
+      "createdAt": "2026-09-28T10:15:00Z"
+    },
+    {
+      "id": "USR-000005",
+      "username": "hari",
+      "firstName": "Hari",
+      "lastName": "Gurung",
+      "email": "hari@example.com",
+      "phone": "9833333333",
+      "password": "Hari@123",
+      "roles": ["buyer"],
+      "activeRole": "buyer",
+      "status": "active",
+      "isVerified": true,
+      "promotionStatus": "not_eligible",
+      "createdAt": "2026-09-28T10:20:00Z"
+    },
+    {
+      "id": "USR-000006",
+      "username": "anita",
+      "firstName": "Anita",
+      "lastName": "Rai",
+      "email": "anita@example.com",
+      "phone": "9844444444",
+      "password": "Anita@123",
+      "roles": ["buyer", "influencer", "affiliate_marketer"],
+      "activeRole": "influencer",
+      "status": "active",
+      "isVerified": true,
+      "promotionStatus": "promoted",
+      "createdAt": "2026-09-28T10:25:00Z"
+    }
+  ]
+}

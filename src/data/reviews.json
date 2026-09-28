@@ -1,0 +1,34 @@
+{
+  "reviews": [
+    {
+      "id": "REV-000001",
+      "productId": "PROD-000001",
+      "vendorId": "VEN-000001",
+      "buyerId": "USR-000006",
+      "orderId": "ORD-000001",
+      "rating": 5,
+      "title": "Great smartphone",
+      "comment": "The phone quality is excellent and delivery was fast.",
+      "images": ["/images/reviews/review-000001.jpg"],
+      "verifiedPurchase": true,
+      "helpfulCount": 12,
+      "status": "published",
+      "createdAt": "2026-09-28T11:00:00Z"
+    },
+    {
+      "id": "REV-000002",
+      "productId": "PROD-000002",
+      "vendorId": "VEN-000001",
+      "buyerId": "USR-000005",
+      "orderId": "ORD-000002",
+      "rating": 4,
+      "title": "Good charger",
+      "comment": "Charging speed is good and the product feels durable.",
+      "images": [],
+      "verifiedPurchase": true,
+      "helpfulCount": 5,
+      "status": "published",
+      "createdAt": "2026-09-28T11:10:00Z"
+    }
+  ]
+}
