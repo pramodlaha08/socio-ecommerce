@@ -35,6 +35,28 @@
       "permissions": ["manage_products", "manage_inventory", "process_orders", "view_sales"],
       "createdBy": "SEL-000001",
       "status": "active"
+    },
+    {
+      "id": "SEL-000003",
+      "userId": "USR-000008",
+      "vendorId": "VEN-000001",
+      "role": "super_seller",
+      "employee": {
+        "employeeCode": "EMP-003",
+        "designation": "Store Manager",
+        "joiningDate": "2026-09-28"
+      },
+      "permissions": [
+        "manage_products",
+        "manage_inventory",
+        "manage_orders",
+        "add_sellers",
+        "remove_sellers",
+        "manage_seller_permissions",
+        "view_sales"
+      ],
+      "createdBy": "USR-000002",
+      "status": "active"
     }
   ]
 }

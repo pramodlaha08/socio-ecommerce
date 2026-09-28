@@ -1,4 +1,9 @@
+'use client';
+
 import Link from 'next/link';
+import { ChevronDown, LogOut } from 'lucide-react';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const headerConfig = {
   brand: {
@@ -20,6 +25,10 @@ const headerConfig = {
       href: '#',
     },
     {
+      label: 'Sell on Socio',
+      href: '/register/vendor',
+    },
+    {
       label: 'Privacy & Policy',
       href: '/privacy',
     },
@@ -33,17 +42,41 @@ const headerConfig = {
     {
       label: 'Cart',
       href: '#',
-      variant: 'outline',
     },
     {
-      label: 'Account',
-      href: '#',
-      variant: 'primary',
+      label: 'Register',
+      href: '/register/user',
+    },
+  ],
+
+  loginOptions: [
+    {
+      label: 'User Login',
+      href: '/user/login',
+      description: 'Login as a buyer',
+    },
+    {
+      label: 'Seller Login',
+      href: '/seller/login',
+      description: 'Login as a seller',
+    },
+    {
+      label: 'Admin Login',
+      href: '/admin/login',
+      description: 'Access administration',
     },
   ],
 };
 
 export function SiteHeader() {
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const router = useRouter();
+
+  function handleLogout() {
+    setIsLoginOpen(false);
+    router.push('/');
+  }
+
   return (
     <header className="border-b border-border bg-background">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
@@ -70,19 +103,59 @@ export function SiteHeader() {
 
         {/* Actions */}
         <div className="flex items-center gap-3">
+          {/* Cart + Register */}
           {headerConfig.actions.map((action) => (
             <Link
               key={action.label}
               href={action.href}
-              className={
-                action.variant === 'primary'
-                  ? 'rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90'
-                  : 'rounded-lg border border-border bg-card px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary'
-              }
+              className="rounded-lg border border-border bg-card px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
             >
               {action.label}
             </Link>
           ))}
+
+          {/* Logout */}
+          <button
+            type="button"
+            onClick={handleLogout}
+            className="flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+          >
+            <LogOut className="size-4" />
+            Logout
+          </button>
+
+          {/* Login Dropdown */}
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setIsLoginOpen((current) => !current)}
+              className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+              aria-expanded={isLoginOpen}
+              aria-haspopup="menu"
+            >
+              Login
+              <ChevronDown
+                className={`size-4 transition-transform ${isLoginOpen ? 'rotate-180' : ''}`}
+              />
+            </button>
+
+            {isLoginOpen && (
+              <div className="absolute right-0 z-50 mt-2 w-64 rounded-xl border border-border bg-card p-2 shadow-lg">
+                {headerConfig.loginOptions.map((option) => (
+                  <Link
+                    key={option.label}
+                    href={option.href}
+                    onClick={() => setIsLoginOpen(false)}
+                    className="block rounded-lg px-3 py-3 transition-colors hover:bg-muted"
+                  >
+                    <div className="text-sm font-medium text-foreground">{option.label}</div>
+
+                    <div className="mt-1 text-xs text-muted-foreground">{option.description}</div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </header>

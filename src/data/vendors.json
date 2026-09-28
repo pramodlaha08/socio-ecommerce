@@ -52,10 +52,10 @@
         "accountNumber": "1234567890",
         "verified": true
       },
-      "superSellerId": "SEL-000001",
+      "superSellerId": "SEL-000003",
       "status": "approved",
       "createdAt": "2026-09-28T10:05:00Z",
-      "approvedAt": "2026-09-28T10:08:00Z"
+      "approvedAt": "2026-09-28T07:58:38.189Z"
     }
   ]
 }
