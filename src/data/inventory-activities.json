@@ -1,0 +1,16 @@
+{
+  "id": "INVENTORY-000001",
+  "productId": "PROD-000001",
+  "vendorId": "VEN-000001",
+  "sellerId": "SEL-000001",
+  "productName": "Example Smartphone Pro",
+  "sku": "EX-PRO-X-256-BLK",
+  "type": "increase",
+  "quantity": 10,
+  "quantityBefore": 25,
+  "quantityAfter": 35,
+  "availableQuantityBefore": 25,
+  "availableQuantityAfter": 35,
+  "reason": "New stock received",
+  "createdAt": "2026-09-29T10:00:00.000Z"
+}

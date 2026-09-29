@@ -1,0 +1,99 @@
+{
+  "payments": [
+    {
+      "id": "PAY-000001",
+      "orderId": "ORD-000001",
+      "orderNumber": "SC-20260929-0001",
+
+      "buyerId": "USR-000005",
+      "vendorId": "VEN-000001",
+
+      "method": "online",
+
+      "provider": "demo_gateway",
+
+      "amount": 95200,
+      "currency": "NPR",
+
+      "status": "paid",
+
+      "transactionId": "TXN-202609290001",
+
+      "gatewayReference": "DEMO-REF-000001",
+
+      "paidAt": "2026-09-29T10:30:00Z",
+
+      "metadata": {
+        "gateway": "Demo Payment Gateway",
+        "cardLastFour": null
+      },
+
+      "createdAt": "2026-09-29T10:20:00Z",
+      "updatedAt": "2026-09-29T10:30:00Z"
+    },
+
+    {
+      "id": "PAY-000002",
+      "orderId": "ORD-000002",
+      "orderNumber": "SC-20260929-0002",
+
+      "buyerId": "USR-000006",
+      "vendorId": "VEN-000001",
+
+      "method": "cash_on_delivery",
+
+      "provider": null,
+
+      "amount": 5100,
+      "currency": "NPR",
+
+      "status": "pending",
+
+      "transactionId": null,
+
+      "gatewayReference": null,
+
+      "paidAt": null,
+
+      "metadata": {
+        "gateway": null,
+        "cardLastFour": null
+      },
+
+      "createdAt": "2026-09-29T10:40:00Z",
+      "updatedAt": "2026-09-29T10:40:00Z"
+    },
+
+    {
+      "id": "PAY-000003",
+      "orderId": "ORD-000003",
+      "orderNumber": "SC-20260928-0003",
+
+      "buyerId": "USR-000005",
+      "vendorId": "VEN-000001",
+
+      "method": "online",
+
+      "provider": "demo_gateway",
+
+      "amount": 4150,
+      "currency": "NPR",
+
+      "status": "paid",
+
+      "transactionId": "TXN-202609280003",
+
+      "gatewayReference": "DEMO-REF-000003",
+
+      "paidAt": "2026-09-28T11:00:00Z",
+
+      "metadata": {
+        "gateway": "Demo Payment Gateway",
+        "cardLastFour": null
+      },
+
+      "createdAt": "2026-09-28T10:45:00Z",
+      "updatedAt": "2026-09-28T11:00:00Z"
+    }
+  ]
+}

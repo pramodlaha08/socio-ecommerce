@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter, usePathname } from 'next/navigation';
+
 import {
   BarChart3,
   Box,
@@ -73,7 +74,11 @@ const bottomNavigation = [
   },
 ];
 
-export function SellerSidebar({ open, onClose, isSuperSeller }: SellerSidebarProps) {
+export function SellerSidebar({
+  open,
+  onClose,
+  isSuperSeller,
+}: SellerSidebarProps) {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -83,7 +88,6 @@ export function SellerSidebar({ open, onClose, isSuperSeller }: SellerSidebarPro
 
   function handleLogout() {
     localStorage.removeItem('socio-seller');
-
     localStorage.removeItem('socio-seller-token');
 
     router.push('/seller/login');
@@ -109,9 +113,12 @@ export function SellerSidebar({ open, onClose, isSuperSeller }: SellerSidebarPro
         {/* Header */}
         <div className="flex h-16 items-center justify-between border-b border-border px-5">
           <div>
-            <p className="font-bold text-foreground">Socio Commerce</p>
-
-            <p className="text-xs text-muted-foreground">Seller Dashboard</p>
+            <p className="font-bold text-foreground">
+              Socio Commerce
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Seller Dashboard
+            </p>
           </div>
 
           <button
@@ -129,7 +136,9 @@ export function SellerSidebar({ open, onClose, isSuperSeller }: SellerSidebarPro
           {navigation.map((item) => {
             const Icon = item.icon;
 
-            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+            const active =
+              pathname === item.href ||
+              pathname.startsWith(`${item.href}/`);
 
             return (
               <button
@@ -146,7 +155,6 @@ export function SellerSidebar({ open, onClose, isSuperSeller }: SellerSidebarPro
                 }`}
               >
                 <Icon className="size-5" />
-
                 {item.label}
               </button>
             );
